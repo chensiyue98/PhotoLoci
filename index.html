@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhotoLoci - Rediscover Your Memories</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="hero">
+        <div class="container">
+            <h1 class="logo">PhotoLoci</h1>
+            <p class="tagline">Map Your Memories, Relive the Moments.</p>
+            <p class="description">
+                PhotoLoci helps you visualize your photo library on an interactive map. 
+                Rediscover the places you've been and the stories behind every photo. 
+                Your personal photo geography, reimagined.
+            </p>
+        </div>
+    </header>
+
+    <main id="gallery" class="gallery-section">
+        <div class="container">
+            <h2>App Screenshots</h2>
+            <div class="swiper screenshot-carousel">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="gallery-item">
+                            <img src="screenshot1.png" alt="PhotoLoci Screenshot 1" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="gallery-item">
+                            <img src="screenshot2.png" alt="PhotoLoci Screenshot 2" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="gallery-item">
+                            <img src="screenshot3.png" alt="PhotoLoci Screenshot 3" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="gallery-item">
+                            <img src="screenshot4.png" alt="PhotoLoci Screenshot 4" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="gallery-item">
+                            <img src="screenshot5.png" alt="PhotoLoci Screenshot 5" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="gallery-item">
+                            <img src="screenshot6.png" alt="PhotoLoci Screenshot 6" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+                <!-- Pagination -->
+                <div class="swiper-pagination"></div>
+                <!-- Navigation -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <h3>We'd love to hear from you!</h3>
+            <p>Have feedback or suggestions for PhotoLoci?</p>
+            <a href="mailto:photo-maps@outlook.com" class="cta-button">
+                Contact Us
+            </a>
+            <p class="copyright">&copy; 2025 PhotoLoci. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        const swiper = new Swiper('.screenshot-carousel', {
+            slidesPerView: 1.2,
+            centeredSlides: true,
+            spaceBetween: 20,
+            loop: true,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            breakpoints: {
+                480: {
+                    slidesPerView: 2,
+                    centeredSlides: false,
+                },
+                768: {
+                    slidesPerView: 3,
+                    centeredSlides: false,
+                },
+                1024: {
+                    slidesPerView: 4,
+                    spaceBetween: 30,
+                    centeredSlides: false,
+                },
+                1280: {
+                    slidesPerView: 5,
+                    spaceBetween: 30,
+                    centeredSlides: false,
+                }
+            }
+        });
+    </script>
+</body>
+</html>
