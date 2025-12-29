@@ -39,6 +39,10 @@ body {
     border-bottom: 1px solid #e2e8f0;
 }
 
+.hero-small {
+    padding: 3rem 0 2rem;
+}
+
 .logo {
     font-size: 3rem;
     font-weight: 800;
@@ -47,10 +51,21 @@ body {
     letter-spacing: -0.05em;
 }
 
+.hero-small .logo {
+    font-size: 2rem;
+    margin-bottom: 0.25rem;
+}
+
 .tagline {
     font-size: 1.5rem;
     font-weight: 600;
     margin-bottom: 1.5rem;
+}
+
+.hero-small .tagline {
+    font-size: 1.25rem;
+    margin-bottom: 0;
+    color: var(--text-light);
 }
 
 .description {
@@ -144,6 +159,56 @@ body {
     background: var(--primary-color);
 }
 
+/* Privacy Page */
+.privacy-section {
+    padding: 3rem 0;
+}
+
+.privacy-content {
+    max-width: 800px;
+    background: var(--white);
+    padding: 3rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+}
+
+.privacy-content section {
+    margin-bottom: 2.5rem;
+}
+
+.privacy-content section:last-child {
+    margin-bottom: 0;
+}
+
+.privacy-content h2 {
+    font-size: 1.5rem;
+    color: var(--text-color);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #f1f5f9;
+}
+
+.privacy-content p {
+    color: var(--text-light);
+    margin-bottom: 1rem;
+}
+
+.privacy-content ul {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-light);
+}
+
+.privacy-content li {
+    margin-bottom: 0.5rem;
+}
+
+.privacy-content strong {
+    color: var(--text-color);
+    font-weight: 600;
+}
+
 /* Footer */
 .footer {
     background-color: var(--white);
@@ -160,6 +225,23 @@ body {
 .footer p {
     color: var(--text-light);
     margin-bottom: 1.5rem;
+}
+
+.footer-links {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.footer-link {
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 0.875rem;
+    margin: 0 0.5rem;
+    transition: color 0.2s;
+}
+
+.footer-link:hover {
+    color: var(--primary-color);
 }
 
 .email-link {
@@ -191,5 +273,9 @@ body {
     }
     .tagline {
         font-size: 1.25rem;
+    }
+    
+    .privacy-content {
+        padding: 1.5rem;
     }
 }
