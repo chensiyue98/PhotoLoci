@@ -189,11 +189,19 @@ body {
     box-shadow: var(--shadow-hover);
 }
 
-.gallery-item img {
+.media-frame {
+    width: 100%;
+    aspect-ratio: 9 / 16;
+}
+
+.media-frame img,
+.media-frame iframe {
     display: block;
     width: 100%;
-    height: auto;
+    height: 100%;
     border-radius: calc(var(--radius) - 6px);
+    object-fit: cover;
+    border: 0;
 }
 
 /* Video Link Styling */
