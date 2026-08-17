@@ -2,7 +2,7 @@
   const locales = ['de', 'en', 'es', 'fr', 'ja', 'ko', 'nl', 'zh-CN', 'zh-TW'];
   const labels = { de:'Deutsch', en:'English', es:'Español', fr:'Français', ja:'日本語', ko:'한국어', nl:'Nederlands', 'zh-CN':'简体中文', 'zh-TW':'繁體中文' };
   const source = {
-    map:'地图', journeys:'旅程', privacy:'隐私', download:'下载', designed:'为 iPhone 与 iPad 设计',
+    map:'地图', journeys:'旅程', privacy:'隐私', privacyPolicy:'隐私政策', download:'下载', designed:'为 iPhone 与 iPad 设计',
     hero1:'把照片放回', hero2:'它们发生的地方', lede:'在地图上探索照片足迹，重拾每一段旅程，并把走过的地方变成属于你的旅行故事。',
     explore:'看看它能做什么', local:'无需创建账户 · 照片留在你的设备上', photos:'224 张照片', spring:'一个春天', trail:'沿着足迹继续',
     geography:'你的照片地理', mapTitle:'相册，也是一张\n只属于你的旅行地图。', mapCopy:'从城市里的一个街角，到跨越数年的足迹。缩放、搜索、按时间浏览，在熟悉的地图上重新遇见那些照片。',
@@ -31,6 +31,8 @@
     'zh-TW':{premiumCopy:'旅程、旅行海報、統計、新增位置與位置修復；另含照片篩選和地點搜尋。沒有訂閱，也沒有倒數計時。',regionalPrice:'價格會在 App Store 中依你所在的地區顯示',onDeviceCopy:'照片分析與地圖彙整在你的裝置上完成。',permissionsCopy:'照片與位置存取權限可隨時在系統設定中更改。'}
   };
   Object.entries(supplements).forEach(([locale, extra]) => Object.assign(messages[locale], extra));
+  const privacyPolicies = { de:'Datenschutzrichtlinie', en:'Privacy Policy', es:'Política de privacidad', fr:'Politique de confidentialité', ja:'プライバシーポリシー', ko:'개인정보 처리방침', nl:'Privacybeleid', 'zh-TW':'隱私政策' };
+  Object.entries(privacyPolicies).forEach(([locale, value]) => { messages[locale].privacyPolicy = value; });
 
   const sourceToKey = Object.fromEntries(Object.entries(source).map(([key, value]) => [value.replace(/\n/g, ''), key]));
   const normalize = lang => {
