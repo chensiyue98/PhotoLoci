@@ -47,6 +47,14 @@ html[data-locale="ja"] body{font-family:-apple-system,BlinkMacSystemFont,"Hiragi
 @media(max-width:1100px){.map-story{grid-template-columns:1fr;gap:46px}.map-story .section-heading{max-width:720px}.map-window{height:630px}}
 @media(max-width:600px){.map-window{height:520px}}
 
+/* Layered pointer parallax for the hero preview. */
+.hero-visual .phone-front{translate:var(--front-x,0) var(--front-y,0)}
+.hero-visual .phone-back{translate:var(--back-x,0) var(--back-y,0)}
+.hero-visual .memory-label{translate:var(--label-x,0) var(--label-y,0)}
+.hero-visual .route-line{translate:var(--route-x,0) var(--route-y,0)}
+.hero-visual .phone,.hero-visual .memory-label,.hero-visual .route-line{will-change:translate;transition:translate .16s var(--ease)}
+@media(prefers-reduced-motion:reduce){.hero-visual .phone,.hero-visual .memory-label,.hero-visual .route-line{translate:0 0;transition:none}}
+
 /* Reserve a stable two-line caption area across locales. */
 .feature-card h3{bottom:82px}
 .feature-card>p{bottom:18px;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden}
