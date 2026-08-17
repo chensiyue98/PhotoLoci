@@ -47,6 +47,10 @@ html[data-locale="ja"] body{font-family:-apple-system,BlinkMacSystemFont,"Hiragi
 @media(max-width:1100px){.map-story{grid-template-columns:1fr;gap:46px}.map-story .section-heading{max-width:720px}.map-window{height:630px}}
 @media(max-width:600px){.map-window{height:520px}}
 
+/* Reserve a stable two-line caption area across locales. */
+.feature-card h3{bottom:82px}
+.feature-card>p{bottom:18px;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden}
+
 /* The first column must fit the intended seven-character CJK title line. */
 .map-story{grid-template-columns:minmax(500px,.9fr) minmax(0,1.1fr)}
 @media(max-width:1239px){.map-story{grid-template-columns:1fr;gap:46px}.map-story .section-heading{max-width:720px}}
