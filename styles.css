@@ -17,3 +17,37 @@ img.mark{display:block;width:23px;height:23px;object-fit:contain;border-radius:6
 .rail-hint i:after{content:"";position:absolute;top:0;left:var(--indicator-left,0%);width:35%;height:100%;background:var(--ink);transition:left .08s linear}
 
 @media(max-width:900px){.feature-rail{margin-left:0;margin-right:0;padding-left:0;padding-right:0}}
+
+/* Feature card hover glow */
+.feature-card{transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
+.feature-card>*{z-index:1}
+.feature-card:after{content:"";position:absolute;z-index:0;inset:-1px;pointer-events:none;border-radius:inherit;background:radial-gradient(circle 88px at var(--glow-x,24%) var(--glow-y,8%),rgba(255,255,255,.2),rgba(255,255,255,.09) 42%,rgba(255,255,255,.025) 68%,transparent 78%);backdrop-filter:blur(8px) saturate(118%);-webkit-backdrop-filter:blur(8px) saturate(118%);-webkit-mask-image:radial-gradient(circle 104px at var(--glow-x,24%) var(--glow-y,8%),#000 0 48%,rgba(0,0,0,.55) 68%,transparent 88%);mask-image:radial-gradient(circle 104px at var(--glow-x,24%) var(--glow-y,8%),#000 0 48%,rgba(0,0,0,.55) 68%,transparent 88%);opacity:0;transform:translateY(8px);transition:opacity .3s var(--ease),transform .4s var(--ease);will-change:background,mask-image}
+@media(hover:hover){.feature-card:hover{transform:translateY(-6px);box-shadow:0 22px 46px color-mix(in srgb,var(--card) 30%,transparent),0 0 24px color-mix(in srgb,var(--card) 16%,transparent)}.feature-card:hover:after{opacity:.52;transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){.feature-card,.feature-card:after{transition:none}.feature-card:hover{transform:none}}
+
+/* Language picker */
+.language-picker{position:relative;height:38px;display:flex;align-items:center;gap:7px;padding:0 28px 0 10px;border:1px solid var(--line);border-radius:12px;background:rgba(255,255,255,.42);color:var(--secondary);transition:background .2s,border-color .2s,box-shadow .2s}.language-picker:after{content:"";position:absolute;right:11px;top:50%;width:6px;height:6px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:translateY(-70%) rotate(45deg);pointer-events:none}.language-icon{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.35;flex:none}.language-picker:focus-within{border-color:rgba(51,122,240,.48);box-shadow:0 0 0 3px rgba(51,122,240,.16)}.language-picker:hover{background:rgba(255,255,255,.7);color:var(--ink)}
+.language-picker-standalone{position:fixed;z-index:100;top:18px;right:22px;background:rgba(248,248,250,.78);box-shadow:0 8px 28px rgba(0,0,0,.08);backdrop-filter:blur(20px)}
+html[data-locale="ja"] body{font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic UI",sans-serif}html[data-locale="ko"] body{font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif}
+@media(max-width:600px){.language-picker{margin-left:auto;width:38px;padding:0;justify-content:center}.language-picker:after{display:none}.nav-download{margin-left:0}}
+@media(prefers-color-scheme:dark){.language-picker{background:rgba(37,37,40,.62)}}
+
+/* Custom language menu */
+.language-trigger{display:flex;align-items:center;gap:7px;padding:0;border:0;background:none;color:inherit;font:600 12px/1 -apple-system,BlinkMacSystemFont,"SF Pro Text",sans-serif;cursor:pointer}.language-trigger:focus{outline:0}.language-current{width:76px;color:var(--ink);text-align:left;white-space:nowrap}.language-menu{position:absolute;z-index:20;top:calc(100% + 9px);right:0;width:172px;padding:6px;border:1px solid rgba(255,255,255,.64);border-radius:15px;background:rgba(250,250,252,.92);box-shadow:0 16px 42px rgba(20,22,30,.16);backdrop-filter:blur(24px) saturate(150%);-webkit-backdrop-filter:blur(24px) saturate(150%);opacity:0;visibility:hidden;transform:translateY(-6px) scale(.98);transform-origin:top right;transition:opacity .18s var(--ease),transform .18s var(--ease),visibility .18s}.language-picker.open .language-menu{opacity:1;visibility:visible;transform:none}.language-option{width:100%;height:36px;padding:0 10px;border:0;border-radius:9px;background:transparent;color:#26262b;display:flex;align-items:center;justify-content:space-between;font:600 13px/1 -apple-system,BlinkMacSystemFont,"SF Pro Text",sans-serif;text-align:left;cursor:pointer}.language-option i{font-style:normal;color:var(--blue);opacity:0}.language-option.selected{background:rgba(51,122,240,.1);color:#175fbf}.language-option.selected i{opacity:1}.language-option:hover,.language-option:focus-visible{outline:0;background:rgba(51,122,240,.14)}
+@media(max-width:600px){.language-current{display:none}.language-trigger{position:absolute;inset:0;justify-content:center}}
+@media(prefers-color-scheme:dark){.language-menu{border-color:rgba(255,255,255,.12);background:rgba(43,43,47,.94)}.language-option{color:#f5f5f7}.language-option.selected{color:#75aaff;background:rgba(51,122,240,.18)}}
+
+/* Make the full language pill, including its arrow, clickable. */
+.language-picker{width:128px;flex:0 0 128px}
+.language-trigger{position:absolute;inset:0;width:100%;padding:0 28px 0 10px}
+@media(max-width:760px){.nav-links{display:none}.language-picker{margin-left:auto}}
+@media(max-width:600px){.language-picker{width:38px;flex-basis:38px}.language-trigger{padding:0;justify-content:center}}
+
+/* Keep the map-story heading readable before its text column gets cramped. */
+@media(max-width:1100px){.map-story{grid-template-columns:1fr;gap:46px}.map-story .section-heading{max-width:720px}.map-window{height:630px}}
+@media(max-width:600px){.map-window{height:520px}}
+
+/* The first column must fit the intended seven-character CJK title line. */
+.map-story{grid-template-columns:minmax(500px,.9fr) minmax(0,1.1fr)}
+@media(max-width:1239px){.map-story{grid-template-columns:1fr;gap:46px}.map-story .section-heading{max-width:720px}}
+@media(max-width:600px){.map-window{height:520px}}

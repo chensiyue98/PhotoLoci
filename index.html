@@ -54,7 +54,7 @@
     <section class="map-story section" id="map">
       <div class="section-heading reveal">
         <p class="eyebrow">你的照片地理</p>
-        <h2>相册，也是一张<br>只属于你的旅行地图。</h2>
+        <h2 data-i18n-lines="mapTitle">相册，也是一张<br>只属于你的旅行地图。</h2>
         <p>从城市里的一个街角，到跨越数年的足迹。缩放、搜索、按时间浏览，在熟悉的地图上重新遇见那些照片。</p>
       </div>
       <div class="map-stage reveal">
@@ -114,7 +114,7 @@
       </div>
       <div class="premium-copy reveal">
         <p class="eyebrow">PhotoLoci 高级功能</p>
-        <h2>一次解锁，<br>所有高级工具。</h2>
+        <h2 data-i18n-lines="premiumTitle">一次解锁，<br>所有高级工具。</h2>
         <p>旅程、旅行海报、统计、添加位置与位置修复；另含照片筛选和地点搜索。没有订阅，也没有倒计时。</p>
         <a class="primary-button" href="https://apps.apple.com/nl/app/photoloci/id6757147535?l=en-GB" target="_blank" rel="noopener noreferrer">在 App 内查看高级功能</a>
         <small>价格会在 App Store 中按你所在地区显示</small>
@@ -124,7 +124,7 @@
     <section class="privacy-callout section" id="privacy">
       <div class="privacy-card reveal">
         <div class="shield" aria-hidden="true">⌂<span>✓</span></div>
-        <div><p class="eyebrow">照片属于你</p><h2>回忆很私人。<br>处理也应如此。</h2></div>
+        <div><p class="eyebrow">照片属于你</p><h2 data-i18n-lines="privateTitle">回忆很私人。<br>处理也应如此。</h2></div>
         <div class="privacy-facts">
           <p><b>在设备上处理</b><span>照片分析与地图聚合在你的设备上完成。</span></p>
           <p><b>由你决定权限</b><span>照片与位置访问随时可以在系统设置中更改。</span></p>
@@ -136,7 +136,7 @@
     <section class="final-cta section reveal">
       <div class="contours" aria-hidden="true"></div>
       <p class="eyebrow">下一站，从相册开始</p>
-      <h2>重新发现<br>走过的地方。</h2>
+      <h2 data-i18n-lines="rediscover">重新发现<br>走过的地方。</h2>
       <p>让每一张照片，都在地图上找到自己的位置。</p>
       <a class="store-link" href="https://apps.apple.com/nl/app/photoloci/id6757147535?l=en-GB" target="_blank" rel="noopener noreferrer"><img src="download-on-the-app-store.svg" alt="在 App Store 下载"></a>
     </section>
@@ -149,6 +149,7 @@
     <p class="copyright">© 2026 PhotoLoci</p>
   </footer>
 
+  <script src="i18n.js"></script>
   <script>
     const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (!reduceMotion && 'IntersectionObserver' in window) {
@@ -170,6 +171,16 @@
       featureRail.addEventListener('scroll', updateRailIndicator, { passive: true });
       window.addEventListener('resize', updateRailIndicator);
       updateRailIndicator();
+    }
+
+    if (matchMedia('(hover: hover)').matches && !reduceMotion) {
+      document.querySelectorAll('.feature-card').forEach(card => {
+        card.addEventListener('pointermove', event => {
+          const bounds = card.getBoundingClientRect();
+          card.style.setProperty('--glow-x', `${event.clientX - bounds.left}px`);
+          card.style.setProperty('--glow-y', `${event.clientY - bounds.top}px`);
+        });
+      });
     }
   </script>
 </body>
